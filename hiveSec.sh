@@ -67,7 +67,7 @@ EOF
 done
 
 #remove unauthorized users from sudo group
-for user in $(grep adm /etc/group | cut -d":" -f4 | sed 's/,/ /g'); do
+for user in $(grep sudo /etc/group | cut -d":" -f4 | sed 's/,/ /g'); do
 	grep -q $user admins.txt || gpasswd -d $user sudo
 done
 	
